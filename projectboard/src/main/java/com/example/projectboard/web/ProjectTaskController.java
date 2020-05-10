@@ -27,16 +27,24 @@ public class ProjectTaskController {
         if(result.hasErrors()){
             Map<String, String> errorMap = new HashMap<>();
 
-
             for(FieldError error : result.getFieldErrors()){
                 errorMap.put(error.getField(), error.getDefaultMessage());
             }
-
             return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
         }
 
         ProjectTask newPT = projectTaskService.saveOrUpdateProjectTask(projectTask);
-
         return new ResponseEntity<ProjectTask>(newPT, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/all")
+    public Iterable<ProjectTask> getAllPTs() {
+        return projectTaskService.findAll();
+    }
+
+    @GetMapping("/{pt_id}")
+    public ResponseEntity<?> getPtById(@PathVariable Long pt_id) {
+        ProjectTask projectTask = projectTaskService.findById(pt_id);
+        return new ResponseEntity<ProjectTask>(projectTask, HttpStatus.OK);
     }
 }
