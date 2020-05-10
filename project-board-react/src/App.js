@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
+import ProjectBoard from './components/ProjectBoard';
+import NavBar from './components/NavBar.js';
 
 function App() {
   return (
     <div className="App">
-      <h1 className="alert alert-warning">Hello World!</h1>
+      <NavBar/>
+      <ProjectBoard/>
     </div>
   );
 }
