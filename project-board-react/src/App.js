@@ -5,16 +5,20 @@ import ProjectBoard from './components/ProjectBoard';
 import NavBar from './components/NavBar.js';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import AddProjectTask from "./components/ProjectTask/AddProjectTask";
+import {Provider} from "react-redux";
+improt store from "./store.js";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <NavBar/>
-        <Route exact path="/" component={ProjectBoard} />
-        <Route exact path="/addProjectTask" component={AddProjectTask} />
-      </div>
-    </Router>
+    <Provider store = {store}>
+      <Router>
+        <div className="App">
+          <NavBar/>
+          <Route exact path="/" component={ProjectBoard} />
+          <Route exact path="/addProjectTask" component={AddProjectTask} />
+        </div>
+      </Router>
+    </Provider>
   );
 }
 
