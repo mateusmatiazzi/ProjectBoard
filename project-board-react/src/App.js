@@ -6,7 +6,7 @@ import NavBar from './components/NavBar.js';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import AddProjectTask from "./components/ProjectTask/AddProjectTask";
 import {Provider} from "react-redux";
-improt store from "./store.js";
+import store from "./store.js";
 
 function App() {
   return (
