@@ -43,20 +43,10 @@ class ProjectBoard extends Component {
                         doneItems.push(tasks[i]);
                     }
                 }
-
             }
-        };
-
-        BoardAlgorithm(project_tasks);
-
-        return (
-            <div className="container">
-            <Link to="/addProjectTask" className="btn btn-primary mb-3">
-                <i className="fas fa-plus-circle"> Create Project Task</i>
-            </Link>
-            <br />
-            <hr />
-            <div className="container">
+            return (
+                <React.Fragment>
+                <div className="container">
                 <div className="row">
                     <div className="col-md-4">
                         <div className="card text-center mb-2">
@@ -103,7 +93,21 @@ class ProjectBoard extends Component {
                     </div>
                 </div>
             </div>
-        </div>
+                </React.Fragment>
+            );
+        };
+
+        BoardContent = BoardAlgorithm(project_tasks);
+
+        return (
+            <div className="container">
+                <Link to="/addProjectTask" className="btn btn-primary mb-3">
+                    <i className="fas fa-plus-circle"> Create Project Task</i>
+                </Link>
+                <br />
+                <hr />
+                {BoardContent}
+            </div>
         );
     }
 }
